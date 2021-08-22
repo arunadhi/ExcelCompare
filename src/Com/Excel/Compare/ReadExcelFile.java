@@ -2,7 +2,6 @@ package Com.Excel.Compare;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,9 +11,7 @@ import java.util.Map.Entry;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -30,7 +27,7 @@ public class ReadExcelFile {
 	public static int getColCountOfsht2 = 0;
 	public static ArrayList<String> NotHavinTar = new ArrayList<>();
 	public static ArrayList<String> NotHavinSrc = new ArrayList<>();
-	public static String resultFilepath=null;
+	public static String resultFilepath = null;
 
 	public static void readExceldata(String fileName, String compareSheet1, String compareSheet2) throws IOException {
 
@@ -56,12 +53,17 @@ public class ReadExcelFile {
 		LinkedHashMap<String, ArrayList<Integer>> diffDataMap = compareSrcAndTargetSheet(CompareMap1, CompareMap2);
 		compareSht1 = StyleDesinforDifferntvalueinSheet(diffDataMap, compareSht1, getRowCountofSht1);
 		compareSht2 = StyleDesinforDifferntvalueinSheet(diffDataMap, compareSht2, getRowCountofSht2);
-		FileOutputStream outputStream = new FileOutputStream(resultFilepath+"FinalOutput.xlsx"); 
-			compareBook.write(outputStream);
-			outputStream.close();
-			compareBook.close();
+		compareSht1 = HighLightMismatchedRows(NotHavinTar, compareSht1, getRowCountofSht1, getColCountOfsht1);
+		compareSht2 = HighLightMismatchedRows(NotHavinSrc, compareSht2, getRowCountofSht2, getColCountOfsht2);
+
+		FileOutputStream outputStream = new FileOutputStream(resultFilepath + "FinalOutput.xlsx");
+		compareBook.write(outputStream);
+		outputStream.close();
+		compareBook.close();
 
 	}
+
+	// get the sheet row and column data and return it
 
 	public static LinkedHashMap<String, ArrayList<String>> ExtractRowandColumn(int rowCount, int colCount,
 			XSSFSheet sheet) {
@@ -86,6 +88,8 @@ public class ReadExcelFile {
 		return ListRowOfwithColData;
 
 	}
+
+	// if column name missmatch it will throw the validation message by using java swing concept
 
 	public static void CheckVaildForComparision(int srcColCount, int tarColCount, XSSFSheet Srcsheet,
 			XSSFSheet tarsheet) {
@@ -116,6 +120,7 @@ public class ReadExcelFile {
 
 	}
 
+	// compare the sheets and get the miss match value from excel
 	public static LinkedHashMap<String, ArrayList<Integer>> compareSrcAndTargetSheet(
 			LinkedHashMap<String, ArrayList<String>> CompareMap1,
 			LinkedHashMap<String, ArrayList<String>> CompareMap2) {
@@ -168,6 +173,7 @@ public class ReadExcelFile {
 
 	}
 
+	// miss match cell value highlight in yellow color
 	public static XSSFSheet StyleDesinforDifferntvalueinSheet(LinkedHashMap<String, ArrayList<Integer>> DiffMap,
 			XSSFSheet sheet, int rowCount) {
 
@@ -194,6 +200,33 @@ public class ReadExcelFile {
 
 		}
 		return Stylesheet;
+
+	}
+
+	
+	// mismathc row will highlighted
+	public static XSSFSheet HighLightMismatchedRows(ArrayList<String> mismatchedRow, XSSFSheet sheet, int rowCount,
+			int colCount) {
+		XSSFSheet Stylesheet = sheet;
+		for (int h = 0; h < mismatchedRow.size(); h++) {
+			for (int i = 1; i < rowCount; i++) {
+				String UniValue = Stylesheet.getRow(i).getCell(0).toString();
+
+				if (mismatchedRow.get(h).equalsIgnoreCase(UniValue)) {
+					for(int j=0;j<colCount;j++) {
+					XSSFCell cell = Stylesheet.getRow(i).getCell(j);
+					CellStyle style = compareBook.createCellStyle();
+					// Setting Background color
+					style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+					style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+					cell.setCellStyle(style);
+					}
+					break;
+				}
+
+			}
+		}
+		return sheet;
 
 	}
 }

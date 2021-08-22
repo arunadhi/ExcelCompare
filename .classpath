@@ -5,7 +5,24 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Apachi Poi"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Apachi Poi"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/ooxml-schemas-1.5.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-examples-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-excelant-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-integration-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-ooxml-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-ooxml-schemas-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/poi-scratchpad-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/commons-codec-1.15.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/lib/SparseBitSet-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/ooxml-lib/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/ooxml-lib/curvesapi-1.06.jar"/>
+	<classpathentry kind="lib" path="E:/SW/Selenium/Jar/Apachi Poi/poi-5.0.0-SNAPSHOT/ooxml-lib/xmlbeans-4.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

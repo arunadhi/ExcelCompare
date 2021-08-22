@@ -1,6 +1,6 @@
 package Com.Excel.Main;
 
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -19,7 +19,7 @@ public class Startup {
 		String compareSheet1 = p.getProperty("compareSheet1");
 		String compareSheet2 = p.getProperty("compareSheet2");
 		ReadExcelFile.resultFilepath = p.getProperty("ResultPath");
-
+System.out.println("test");
 		ReadExcelFile.readExceldata(fileName, compareSheet1, compareSheet2);
 	}
 
